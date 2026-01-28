@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "Landscaping App",
+    "slug": "landscaping-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "scheme": "landscapingapp",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.landscapingapp.mobile",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to capture photos of pesticide application sites.",
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to record where pesticide applications occur."
+      }
+    },
+    "android": {
+      "package": "com.landscapingapp.mobile",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
+    },
+    "owner": "your-expo-username",
+    "updates": {
+      "url": "https://u.expo.dev/your-eas-project-id"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
+  }
+}

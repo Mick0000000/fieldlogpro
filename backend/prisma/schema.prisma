@@ -1,0 +1,313 @@
+// Prisma Schema for Landscaping App
+//
+// This file defines all database models and their relationships.
+// Think of each "model" as a database table.
+//
+// Key concepts:
+// - @id: Primary key (unique identifier for each record)
+// - @unique: Field must be unique across all records
+// - @default: Default value when creating new records
+// - @relation: Defines how models connect to each other
+// - @map: Database column name (if different from field name)
+// - @@map: Database table name
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" // Using SQLite for local dev, switch to "postgresql" for production
+  url      = env("DATABASE_URL")
+}
+
+// ===================
+// COMPANY (Multi-tenant root)
+// ===================
+// Every other record belongs to a Company. This enables multi-tenancy
+// where each company only sees their own data.
+
+model Company {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  address   String?
+  city      String?
+  state     String?
+  zipCode   String?  @map("zip_code")
+
+  // Business license info
+  licenseNumber String? @map("license_number")
+  licenseState  String? @map("license_state")
+
+  // Subscription status
+  subscriptionStatus String @default("trial") @map("subscription_status") // trial, active, cancelled, expired
+  trialEndsAt       DateTime? @map("trial_ends_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relationships - A company has many users, customers, applications
+  users        User[]
+  customers    Customer[]
+  applications Application[]
+
+  @@map("companies")
+}
+
+// ===================
+// USER (Applicators & Admins)
+// ===================
+// People who use the app. Can be field applicators or business admins.
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // Hashed with bcrypt, NEVER stored plain text
+  firstName String   @map("first_name")
+  lastName  String   @map("last_name")
+
+  // Role determines what they can do
+  role      String   @default("applicator") // admin, applicator
+
+  // Applicator license info
+  licenseNumber String? @map("license_number")
+  licenseState  String? @map("license_state")
+
+  // Account status
+  isActive  Boolean  @default(true) @map("is_active")
+
+  // Password reset
+  resetToken       String?   @map("reset_token")
+  resetTokenExpiry DateTime? @map("reset_token_expiry")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relationships
+  companyId    String       @map("company_id")
+  company      Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  applications Application[]
+
+  @@map("users")
+}
+
+// ===================
+// CUSTOMER (Properties/Clients)
+// ===================
+// The properties or clients that receive pesticide applications.
+
+model Customer {
+  id        String   @id @default(cuid())
+  name      String
+  email     String?
+  phone     String?
+
+  // Address
+  address   String
+  city      String
+  state     String
+  zipCode   String   @map("zip_code")
+
+  // GPS coordinates for the property
+  latitude  Float?
+  longitude Float?
+
+  // Whether to send email notifications after applications
+  notifyByEmail Boolean @default(true) @map("notify_by_email")
+
+  // Notes about the property
+  notes     String?
+
+  isActive  Boolean  @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relationships
+  companyId        String            @map("company_id")
+  company          Company           @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  applications     Application[]
+  notificationLogs NotificationLog[]
+
+  @@map("customers")
+}
+
+// ===================
+// APPLICATION (Pesticide Application Log)
+// ===================
+// The core record - each time a pesticide is applied, this is logged.
+
+model Application {
+  id        String   @id @default(cuid())
+
+  // When the application happened
+  applicationDate DateTime @map("application_date")
+
+  // Chemical used
+  chemicalId    String   @map("chemical_id")
+  chemical      Chemical @relation(fields: [chemicalId], references: [id])
+  chemicalName  String   @map("chemical_name")  // Denormalized for quick access
+  epaNumber     String?  @map("epa_number")     // EPA registration number
+
+  // Amount applied
+  amount        Float
+  unit          String   // oz, gal, lb, etc.
+
+  // Target pest
+  targetPestId  String?  @map("target_pest_id")
+  targetPest    TargetPest? @relation(fields: [targetPestId], references: [id])
+  targetPestName String? @map("target_pest_name")
+
+  // Application method
+  applicationMethod String? @map("application_method") // spray, granular, injection, etc.
+
+  // Area treated
+  areaTreated   Float?   @map("area_treated")
+  areaUnit      String?  @map("area_unit") // sq ft, acres, etc.
+
+  // Location (GPS from mobile device)
+  latitude      Float?
+  longitude     Float?
+
+  // Weather conditions (auto-filled from weather API)
+  temperature   Float?   // Fahrenheit
+  humidity      Float?   // Percentage
+  windSpeed     Float?   @map("wind_speed") // MPH
+  windDirection String?  @map("wind_direction") // N, NE, E, etc.
+  weatherCondition String? @map("weather_condition") // sunny, cloudy, etc.
+
+  // Photos (stored in Cloudflare R2)
+  labelPhotoUrl   String? @map("label_photo_url")
+  beforePhotoUrl  String? @map("before_photo_url")
+  afterPhotoUrl   String? @map("after_photo_url")
+
+  // Notes
+  notes         String?
+
+  // State compliance fields
+  reentryInterval String? @map("reentry_interval") // For Texas compliance
+  customerConsent Boolean @default(false) @map("customer_consent") // For FL/TX
+
+  // Status
+  status        String   @default("completed") // completed, voided
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relationships
+  companyId     String   @map("company_id")
+  company       Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  applicatorId  String   @map("applicator_id")
+  applicator    User     @relation(fields: [applicatorId], references: [id])
+
+  customerId    String   @map("customer_id")
+  customer      Customer @relation(fields: [customerId], references: [id])
+
+  // Audit trail and notification logs
+  history          ApplicationHistory[]
+  notificationLogs NotificationLog[]
+
+  @@map("applications")
+}
+
+// ===================
+// APPLICATION HISTORY (Audit Trail)
+// ===================
+// Tracks all changes to applications for compliance.
+
+model ApplicationHistory {
+  id            String   @id @default(cuid())
+
+  applicationId String   @map("application_id")
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  action        String   // created, updated, voided
+  changes       String?  // JSON string of what changed
+
+  performedById String   @map("performed_by_id")
+  performedAt   DateTime @default(now()) @map("performed_at")
+
+  @@map("application_history")
+}
+
+// ===================
+// NOTIFICATION LOG (Email Tracking)
+// ===================
+// Tracks email notifications sent to customers.
+
+model NotificationLog {
+  id            String   @id @default(cuid())
+
+  applicationId String   @map("application_id")
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  customerId    String   @map("customer_id")
+  customer      Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  // Email details
+  email         String
+  subject       String
+
+  // Delivery status
+  status        String   @default("pending") // pending, sent, delivered, bounced, failed
+  sentAt        DateTime? @map("sent_at")
+  deliveredAt   DateTime? @map("delivered_at")
+  failureReason String?  @map("failure_reason")
+
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("notification_logs")
+}
+
+// ===================
+// CHEMICAL (Reference Data)
+// ===================
+// Master list of pesticide products.
+
+model Chemical {
+  id          String   @id @default(cuid())
+
+  name        String
+  epaNumber   String?  @map("epa_number") @unique
+  activeIngredient String? @map("active_ingredient")
+  manufacturer String?
+
+  // Signal word (danger level): DANGER, WARNING, CAUTION
+  signalWord  String?  @map("signal_word")
+
+  // Whether this chemical is currently available
+  isActive    Boolean  @default(true) @map("is_active")
+
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  // Relationships
+  applications Application[]
+
+  @@map("chemicals")
+}
+
+// ===================
+// TARGET PEST (Reference Data)
+// ===================
+// Categories of pests that applications target.
+
+model TargetPest {
+  id          String   @id @default(cuid())
+
+  name        String   @unique // Weeds, Insects, Fungus, etc.
+  category    String?  // broad category
+  description String?
+
+  isActive    Boolean  @default(true) @map("is_active")
+
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  // Relationships
+  applications Application[]
+
+  @@map("target_pests")
+}
