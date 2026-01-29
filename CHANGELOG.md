@@ -13,9 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Backend Deployed to Railway:**
 - Live URL: https://fieldlogpro-production.up.railway.app
-- PostgreSQL database provisioned
+- PostgreSQL database provisioned and connected
+- Database schema pushed and seeded (39 chemicals, 28 target pests)
 - Environment variables configured (JWT_SECRET, NODE_ENV, PORT, DATABASE_URL)
 - Healthcheck endpoint working (/api/health)
+- API fully operational with authentication
 
 **iOS App Submitted to TestFlight:**
 - EAS Build completed successfully
