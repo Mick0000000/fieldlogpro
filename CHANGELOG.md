@@ -24,6 +24,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Submitted to App Store Connect
 - Awaiting Apple review
 
+**Web Dashboard Deployed to Vercel:**
+- Live URL: https://web-ten-mauve-47.vercel.app
+- Connected to backend API
+- Production build successful
+
 **Bug Fixes:**
 - Added OpenSSL to Alpine Docker image (required for Prisma)
 - Fixed tsconfig.json rootDir to output dist/index.js correctly
