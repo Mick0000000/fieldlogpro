@@ -101,7 +101,7 @@
   - [x] PORT=3000
   - [ ] SENDGRID_API_KEY (pending - needed for email notifications)
   - [ ] SENDGRID_FROM_EMAIL (pending)
-  - [ ] OPENWEATHER_API_KEY (pending - needed for weather auto-fill)
+  - [x] OPENWEATHER_API_KEY ✅
   - [ ] Cloudflare R2 credentials (pending - needed for photo uploads)
 - [x] Deploy backend service
 - [x] Healthcheck passing
