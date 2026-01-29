@@ -1,9 +1,10 @@
 # LANDSCAPE COMPLIANCE LOGGER - PROJECT STATUS
 
-**Last Updated:** January 28, 2026
-**Current Phase:** MVP Complete - Ready for Deployment
-**Overall Progress:** 100% (All features complete)
+**Last Updated:** January 29, 2026
+**Current Phase:** Deployment In Progress
+**Overall Progress:** 100% Development + 75% Deployment
 **Target Launch:** March 23, 2026 (Week 8) - AHEAD OF SCHEDULE
+**App Name:** Field Log Pro
 
 ---
 
@@ -90,32 +91,39 @@
 
 ## 🚀 Deployment Checklist
 
-### Backend (Railway)
-- [ ] Create Railway account & project
-- [ ] Provision PostgreSQL database
-- [ ] Set environment variables:
-  - [ ] DATABASE_URL
-  - [ ] JWT_SECRET
-  - [ ] SENDGRID_API_KEY
-  - [ ] SENDGRID_FROM_EMAIL
-  - [ ] OPENWEATHER_API_KEY
-  - [ ] Cloudflare R2 credentials
-- [ ] Deploy and run migrations
+### Backend (Railway) ✅ DEPLOYED
+- [x] Create Railway account & project (remarkable-solace / Field Log Pro)
+- [x] Provision PostgreSQL database
+- [x] Set environment variables:
+  - [x] DATABASE_URL (linked from Postgres service)
+  - [x] JWT_SECRET
+  - [x] NODE_ENV=production
+  - [x] PORT=3000
+  - [ ] SENDGRID_API_KEY (pending)
+  - [ ] SENDGRID_FROM_EMAIL (pending)
+  - [ ] OPENWEATHER_API_KEY (pending)
+  - [ ] Cloudflare R2 credentials (pending)
+- [x] Deploy backend service
+- [x] Healthcheck passing
+- [ ] Run database migrations
+- **Live URL:** https://fieldlogpro-production.up.railway.app
 
 ### Web Dashboard (Vercel)
 - [ ] Connect GitHub repository
 - [ ] Set root directory to `web`
 - [ ] Set environment variables:
-  - [ ] VITE_API_URL
+  - [ ] VITE_API_URL=https://fieldlogpro-production.up.railway.app
 - [ ] Deploy
 
-### Mobile App (TestFlight)
-- [ ] Create Apple Developer account
-- [ ] Run `eas build:configure`
-- [ ] Update app.json with EAS project ID
-- [ ] Run `eas build --platform ios`
-- [ ] Submit to TestFlight
+### Mobile App (TestFlight) ✅ BUILD COMPLETE
+- [x] Create Apple Developer account
+- [x] Run `eas build:configure`
+- [x] Update app.json with EAS project ID
+- [x] Run `eas build --platform ios --profile production`
+- [x] Submit to TestFlight
+- [ ] Apple review (in progress)
 - [ ] Invite beta testers
+- **Build URL:** https://expo.dev/accounts/mick000000/projects/landscaping-app/builds
 
 ---
 
@@ -143,6 +151,15 @@
 
 ## 📝 Notes & Observations
 
+**January 29, 2026:**
+- Backend successfully deployed to Railway
+- iOS app built and submitted to TestFlight (awaiting Apple review)
+- Fixed several deployment issues:
+  - Added OpenSSL to Alpine Docker image for Prisma
+  - Fixed tsconfig rootDir for correct TypeScript output
+  - Added /api/health endpoint for Railway healthcheck
+  - Switched Prisma from SQLite to PostgreSQL
+
 **January 28, 2026:**
 - MVP development completed in a single day using parallel agent development
 - All features functional and tested locally
@@ -159,11 +176,14 @@
 
 ## 🎯 Next Steps
 
-**Immediate (Deployment):**
-1. Set up Railway account and deploy backend
-2. Set up Vercel and deploy web dashboard
-3. Configure EAS Build and submit to TestFlight
-4. Invite beta testers
+**Immediate (Remaining Deployment):**
+1. ~~Set up Railway account and deploy backend~~ ✅
+2. Run database migrations on Railway
+3. Set up Vercel and deploy web dashboard
+4. ~~Configure EAS Build and submit to TestFlight~~ ✅
+5. Wait for Apple TestFlight review
+6. Set up remaining API keys (SendGrid, OpenWeather, R2)
+7. Invite beta testers
 
 **Post-Launch:**
 1. Monitor error rates and performance
@@ -185,10 +205,13 @@
 | Jan 28, 2026 | Photo upload | Camera/library capture ready |
 | Jan 28, 2026 | Email notifications | SendGrid integration complete |
 | Jan 28, 2026 | Deployment configs | Railway, Vercel, EAS ready |
-| **Jan 28, 2026** | **MVP COMPLETE** | **Ready for production** |
+| Jan 28, 2026 | **MVP COMPLETE** | Ready for production |
+| Jan 29, 2026 | iOS build complete | Submitted to TestFlight |
+| Jan 29, 2026 | Backend deployed | Live on Railway |
+| **Jan 29, 2026** | **DEPLOYMENT IN PROGRESS** | **75% complete** |
 
 ---
 
-**🎉 MVP DEVELOPMENT COMPLETE - READY FOR DEPLOYMENT 🎉**
+**🚀 DEPLOYMENT IN PROGRESS - BACKEND LIVE, iOS IN REVIEW 🚀**
 
 *This document should be updated as deployment progresses and beta testing begins.*

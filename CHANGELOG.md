@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] - 2026-01-29 (Deployment)
+
+### 🚀 Production Deployment
+
+**Backend Deployed to Railway:**
+- Live URL: https://fieldlogpro-production.up.railway.app
+- PostgreSQL database provisioned
+- Environment variables configured (JWT_SECRET, NODE_ENV, PORT, DATABASE_URL)
+- Healthcheck endpoint working (/api/health)
+
+**iOS App Submitted to TestFlight:**
+- EAS Build completed successfully
+- Submitted to App Store Connect
+- Awaiting Apple review
+
+**Bug Fixes:**
+- Added OpenSSL to Alpine Docker image (required for Prisma)
+- Fixed tsconfig.json rootDir to output dist/index.js correctly
+- Added /api/health endpoint for Railway healthcheck
+- Switched Prisma provider from SQLite to PostgreSQL for production
+
+**App Renamed:**
+- Project renamed to "Field Log Pro"
+
+---
+
 ## [1.0.0] - 2026-01-28 (MVP Complete)
 
 ### 🎉 MVP Release
@@ -250,7 +276,8 @@ The Landscape Compliance Logger MVP is complete and ready for deployment!
 | 0.6.0 | 2026-01-28 | Web dashboard | ✅ Released |
 | 0.7.0 | 2026-01-28 | Reports, weather, photos | ✅ Released |
 | 0.8.0 | 2026-01-28 | Email & deployment | ✅ Released |
-| **1.0.0** | **2026-01-28** | **MVP Complete** | **✅ Released** |
+| 1.0.0 | 2026-01-28 | MVP Complete | ✅ Released |
+| **1.0.1** | **2026-01-29** | **Deployment** | **🚀 In Progress** |
 
 ---
 
