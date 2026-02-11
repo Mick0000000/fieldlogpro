@@ -1,5 +1,5 @@
 /**
- * Main entry point for the Landscaping App API
+ * Main entry point for the Field Log Pro API
  *
  * This file sets up the Express server with:
  * - Middleware (security, CORS, JSON parsing)
@@ -47,7 +47,7 @@ app.use(helmet());
 app.use(cors({
   origin: [
     process.env.WEB_APP_URL || 'http://localhost:5173',
-    process.env.MOBILE_APP_URL || 'exp://localhost:8081',
+    'https://web-ten-mauve-47.vercel.app',
   ],
   credentials: true,
 }));
@@ -104,7 +104,7 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`
 ╔═══════════════════════════════════════════════════╗
-║   Landscaping App API Server                      ║
+║   Field Log Pro API Server                         ║
 ╠═══════════════════════════════════════════════════╣
 ║   Status:  Running                                ║
 ║   Port:    ${PORT}                                    ║

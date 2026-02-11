@@ -19,6 +19,8 @@ import CustomersPage from './pages/CustomersPage';
 import UsersPage from './pages/UsersPage';
 import ReportsPage from './pages/ReportsPage';
 import NotificationsPage from './pages/NotificationsPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import SupportPage from './pages/SupportPage';
 
 // Layouts
 import DashboardLayout from './layouts/DashboardLayout';
@@ -84,6 +86,8 @@ const AppContent = () => {
       {/* Public routes */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
+      <Route path="/privacy" element={<PrivacyPolicyPage />} />
+      <Route path="/support" element={<SupportPage />} />
 
       {/* Protected routes */}
       <Route

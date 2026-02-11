@@ -1,0 +1,210 @@
+============================================================
+FIELD LOG PRO - APPLE APP STORE SUBMISSION DETAILS
+============================================================
+Copy/paste these into App Store Connect fields.
+============================================================
+
+
+--- APP INFORMATION ---
+
+App Name: Field Log Pro
+Subtitle: Pesticide Application Logging
+Bundle ID: com.landscapingapp.mobile
+SKU: fieldlogpro-ios-001
+Primary Language: English (U.S.)
+Primary Category: Business
+Secondary Category: Productivity
+Content Rights: Does not contain third-party content
+
+
+--- VERSION INFORMATION ---
+
+Version Number: 1.0.0
+Copyright: 2026 Field Log Pro
+Build: (select from uploaded builds)
+
+
+--- APP DESCRIPTION ---
+
+Field Log Pro is the fastest way for landscaping professionals and pesticide applicators to log chemical applications in the field. Complete a full application log in under 30 seconds with automatic GPS coordinates and real-time weather capture.
+
+Built for technicians working outdoors, the glove-friendly interface makes it easy to log chemicals used, target pests, application amounts, and attach required label photos right from the job site.
+
+Generate state-compliant PDF reports for California (DPR), Florida (DACS), and Texas (TDA) regulations with a single tap. Customers automatically receive email notifications with application details and safety information.
+
+Key Features:
+- Log pesticide applications in under 30 seconds
+- Automatic GPS location and weather auto-fill
+- Searchable database of chemicals with EPA registration numbers
+- Photo capture for product labels, before and after treatment
+- State-compliant PDF report generation (CA, FL, TX)
+- Automated customer email notifications
+- Complete audit trail for regulatory compliance
+- Multi-user company accounts with role-based access
+- Application history with date, customer, and chemical filtering
+
+
+--- KEYWORDS (100 characters max) ---
+
+pesticide,landscaping,chemical,applicator,field log,lawn care,compliance,EPA,spray,pest control
+
+
+--- PROMOTIONAL TEXT (170 characters max) ---
+
+Log pesticide applications in under 30 seconds. Auto-capture GPS and weather. Generate state-compliant reports instantly. Built for field technicians.
+
+
+--- SUPPORT URL ---
+
+https://web-ten-mauve-47.vercel.app/support
+
+
+--- MARKETING URL (optional) ---
+
+https://web-ten-mauve-47.vercel.app
+
+
+--- PRIVACY POLICY URL ---
+
+https://web-ten-mauve-47.vercel.app/privacy
+
+
+--- AGE RATING QUESTIONNAIRE ---
+
+Made for Kids: No
+Cartoon or Fantasy Violence: None
+Realistic Violence: None
+Sexual Content or Nudity: None
+Profanity or Crude Humor: None
+Alcohol, Tobacco, or Drug Use or References: None
+Simulated Gambling: None
+Horror/Fear Themes: None
+Medical/Treatment Information: None
+Mature/Suggestive Themes: None
+Unrestricted Web Access: No
+Gambling and Contests: No
+
+Result: Rated 4+
+
+
+--- APP REVIEW INFORMATION ---
+
+Contact First Name: Micah
+Contact Last Name: Kulish
+Contact Phone: (your phone number)
+Contact Email: micah.kulish@gmail.com
+
+Demo Account Email: (create a test account and provide credentials)
+Demo Account Password: (provide password for test account)
+
+Notes for Reviewer:
+Field Log Pro is a B2B compliance tool for landscaping companies and pesticide applicators. The app allows field technicians to quickly log chemical applications with automatic GPS and weather capture, then generate state-compliant PDF reports.
+
+To test the app:
+1. Create a new account using the Sign Up screen (any email works)
+2. After login, use the Quick Log screen to create an application log
+3. The app will request Camera and Location permissions - both are needed for core functionality
+4. View past logs in the History tab
+5. Export individual logs as PDF reports
+
+The app requires an internet connection to function.
+
+
+--- APP PRIVACY DETAILS (Data Collection) ---
+
+When prompted "Do you or your third-party partners collect data from this app?": YES
+
+Data Types Collected:
+
+1. Contact Info
+   - Name: Collected, Linked to Identity, NOT used for tracking
+     Purpose: App Functionality
+   - Email Address: Collected, Linked to Identity, NOT used for tracking
+     Purpose: App Functionality
+   - Phone Number: Collected (customer records), Linked to Identity, NOT used for tracking
+     Purpose: App Functionality
+
+2. Location
+   - Precise Location: Collected, Linked to Identity, NOT used for tracking
+     Purpose: App Functionality (GPS coordinates for application logging)
+
+3. Photos or Videos
+   - Photos: Collected, Linked to Identity, NOT used for tracking
+     Purpose: App Functionality (label photos, before/after treatment photos)
+
+4. Identifiers
+   - User ID: Collected, Linked to Identity, NOT used for tracking
+     Purpose: App Functionality
+
+Data NOT Collected:
+- Health & Fitness: No
+- Financial Info: No
+- Sensitive Info: No
+- Browsing History: No
+- Search History: No
+- Contacts: No
+- Diagnostics: No
+- Usage Data: No
+- Purchases: No
+
+
+--- ENCRYPTION (Export Compliance) ---
+
+Does your app use encryption? YES
+Is your app exempt? YES
+Exemption: Uses only standard HTTPS/TLS for network communication (ITSAppUsesNonExemptEncryption = false)
+
+
+--- SCREENSHOTS NEEDED ---
+
+You need screenshots for these device sizes:
+
+1. iPhone 6.7" Display (required)
+   - iPhone 15 Pro Max / iPhone 16 Pro Max
+   - Resolution: 1290 x 2796 pixels
+   - Need: 3-10 screenshots
+
+2. iPhone 6.5" Display (required)
+   - iPhone 11 Pro Max / iPhone XS Max
+   - Resolution: 1242 x 2688 pixels
+   - Need: 3-10 screenshots
+
+3. iPad Pro 12.9" (if supporting iPad)
+   - Resolution: 2048 x 2732 pixels
+   - Need: 3-10 screenshots
+
+Recommended Screenshots to Capture:
+  1. Login screen (shows "Field Log Pro" branding)
+  2. Quick Log screen (main feature - empty form)
+  3. Quick Log screen (filled out with data)
+  4. History screen (showing logged applications)
+  5. Application detail view
+  6. Profile screen
+
+Tip: Use the iOS Simulator (Cmd+S to save screenshot) for exact resolutions.
+
+
+--- APP PREVIEWS (optional, up to 3 videos) ---
+
+Format: H.264, 30fps
+Duration: 15-30 seconds recommended
+Resolution: Same as screenshot sizes above
+
+Suggested preview: Screen recording showing the Quick Log flow from start to finish (opening app, filling form, submitting, seeing success confirmation).
+
+
+============================================================
+CHECKLIST BEFORE SUBMITTING
+============================================================
+
+[ ] Privacy Policy hosted at a public URL
+[ ] Support URL live and accessible
+[ ] Test/demo account created for Apple reviewers
+[ ] App icon is 1024x1024px with no transparency
+[ ] At least 3 screenshots per required device size
+[ ] All app metadata filled in App Store Connect
+[ ] App binary uploaded via EAS Submit or Xcode
+[ ] Export compliance questionnaire completed
+[ ] App privacy details completed
+[ ] Age rating questionnaire completed
+============================================================

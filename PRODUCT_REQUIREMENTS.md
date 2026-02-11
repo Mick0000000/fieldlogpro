@@ -22,7 +22,7 @@
 
 ## Product Overview
 
-**Product Name:** Landscape Compliance Logger  
+**Product Name:** Field Log Pro  
 **Target Users:** Pesticide applicators (field technicians) and business owners/managers  
 **Core Value:** Log chemical applications in <30 seconds, auto-generate compliance reports, eliminate 90% of paperwork  
 **Business Model:** SaaS subscription ($39-79/month per company)
@@ -610,12 +610,12 @@ PDF still generates with company header/footer and "No data" message.
 ```
 Hi [Name],
 
-[Admin Name] has invited you to join [Company Name]'s account on Landscape Compliance Logger.
+[Admin Name] has invited you to join [Company Name]'s account on Field Log Pro.
 
 Click the link below to create your account:
 [Signup Link - expires in 7 days]
 
-Landscape Compliance Logger helps you log pesticide applications quickly and stay compliant with state regulations.
+Field Log Pro helps you log pesticide applications quickly and stay compliant with state regulations.
 
 Questions? Contact support@landscapelog.com
 

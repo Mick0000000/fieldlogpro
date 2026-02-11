@@ -1,5 +1,5 @@
 /**
- * Landscaping App - Mobile Application
+ * Field Log Pro - Mobile Application
  *
  * Entry point for the React Native/Expo app.
  * Sets up Redux store provider and navigation.

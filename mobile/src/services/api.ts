@@ -14,10 +14,7 @@ import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Base URL for the API
-// Change this when deploying to production
-const API_BASE_URL = __DEV__
-  ? 'http://127.0.0.1:3000/api'  // Development - use 127.0.0.1 for iOS Simulator
-  : 'https://api.yourapp.com/api'; // Production
+const API_BASE_URL = 'https://fieldlogpro-production.up.railway.app/api';
 
 // Create Axios instance with defaults
 const api = axios.create({

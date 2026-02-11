@@ -8,7 +8,7 @@
 
 ## System Overview
 
-**Product:** Landscape Compliance Logger  
+**Product:** Field Log Pro  
 **Architecture Pattern:** Three-tier (Client → API → Database)  
 **Deployment Model:** Cloud-native (Vercel, Railway, Cloudflare R2)
 

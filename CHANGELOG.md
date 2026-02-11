@@ -1,9 +1,50 @@
-# LANDSCAPE COMPLIANCE LOGGER - CHANGELOG
+# FIELD LOG PRO - CHANGELOG
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+---
+
+## [1.0.2] - 2026-02-11 (App Store Prep & Bug Fixes)
+
+### 🔧 Critical Bug Fixes
+
+**Fixed Authentication (Mobile & Web):**
+- Fixed mobile API URL pointing to localhost instead of production Railway backend
+- Rebuilt production database tables on correct Postgres instance (fieldlogpro service)
+- Re-seeded database with 39 chemicals and 28 target pests
+- Signup and login now fully functional on Expo Go and web dashboard
+
+**Fixed CORS Configuration:**
+- Updated backend CORS to allow requests from Vercel web dashboard
+- Removed deprecated Expo localhost origin
+
+**Fixed Prisma Schema:**
+- Reverted Prisma provider from sqlite back to postgresql for production compatibility
+
+### 🎨 Branding Overhaul
+
+**Unified all branding to "Field Log Pro":**
+- Mobile: "Pesticide Tracker" → "Field Log Pro" on login screen
+- Mobile: "Landscaping App" → "Field Log Pro" in app config
+- Web: "PestTrack" → "Field Log Pro" on login, signup, and sidebar
+- Web: Page title updated to "Field Log Pro"
+- Backend: Server banner and package name updated
+- Docs: All references to "Landscape Compliance Logger" updated
+
+### 📱 App Store Submission Prep
+
+**New Pages (Web Dashboard):**
+- Privacy Policy page at /privacy
+- Support page at /support
+
+**App Store Submission Document:**
+- Created APP_STORE_SUBMISSION.txt with all App Store Connect fields
+- App description, keywords, promotional text
+- Privacy details and data collection declarations
+- Age rating answers, review notes, and screenshot checklist
 
 ---
 
@@ -29,6 +70,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Connected to backend API
 - Production build successful
 
+**Environment Variables Configured:**
+- OpenWeather API key added - weather auto-fill now functional
+
 **Bug Fixes:**
 - Added OpenSSL to Alpine Docker image (required for Prisma)
 - Fixed tsconfig.json rootDir to output dist/index.js correctly
@@ -44,7 +88,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🎉 MVP Release
 
-The Landscape Compliance Logger MVP is complete and ready for deployment!
+The Field Log Pro MVP is complete and ready for deployment!
 
 **What's Included:**
 - Full-featured mobile app for field technicians (iOS)
@@ -284,7 +328,8 @@ The Landscape Compliance Logger MVP is complete and ready for deployment!
 | 0.7.0 | 2026-01-28 | Reports, weather, photos | ✅ Released |
 | 0.8.0 | 2026-01-28 | Email & deployment | ✅ Released |
 | 1.0.0 | 2026-01-28 | MVP Complete | ✅ Released |
-| **1.0.1** | **2026-01-29** | **Deployment** | **🚀 In Progress** |
+| 1.0.1 | 2026-01-29 | Production Deployment | ✅ Live |
+| **1.0.2** | **2026-02-11** | **App Store Prep & Bug Fixes** | **✅ Live** |
 
 ---
 

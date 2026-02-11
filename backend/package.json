@@ -1,5 +1,5 @@
 {
-  "name": "landscaping-app-backend",
+  "name": "fieldlogpro-backend",
   "version": "0.1.0",
   "description": "Backend API for pesticide application logging SaaS",
   "main": "dist/index.js",

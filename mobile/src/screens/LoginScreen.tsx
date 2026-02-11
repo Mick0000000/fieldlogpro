@@ -170,7 +170,7 @@ export default function LoginScreen() {
       >
         {/* Header Section */}
         <View style={styles.header}>
-          <Text style={styles.title}>Pesticide Tracker</Text>
+          <Text style={styles.title}>Field Log Pro</Text>
           <Text style={styles.subtitle}>Sign in to your account</Text>
         </View>
 

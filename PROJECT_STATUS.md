@@ -1,8 +1,8 @@
-# LANDSCAPE COMPLIANCE LOGGER - PROJECT STATUS
+# FIELD LOG PRO - PROJECT STATUS
 
-**Last Updated:** January 29, 2026
-**Current Phase:** Deployment In Progress
-**Overall Progress:** 100% Development + 95% Deployment
+**Last Updated:** February 11, 2026
+**Current Phase:** App Store Submission
+**Overall Progress:** 100% Development + 100% Deployment
 **Target Launch:** March 23, 2026 (Week 8) - AHEAD OF SCHEDULE
 **App Name:** Field Log Pro
 
@@ -99,10 +99,10 @@
   - [x] JWT_SECRET
   - [x] NODE_ENV=production
   - [x] PORT=3000
-  - [ ] SENDGRID_API_KEY (pending - needed for email notifications)
-  - [ ] SENDGRID_FROM_EMAIL (pending)
+  - [x] SENDGRID_API_KEY ✅
+  - [x] SENDGRID_FROM_EMAIL ✅
   - [x] OPENWEATHER_API_KEY ✅
-  - [ ] Cloudflare R2 credentials (pending - needed for photo uploads)
+  - [x] Cloudflare R2 credentials ✅
 - [x] Deploy backend service
 - [x] Healthcheck passing
 - [x] Run database migrations (schema pushed)
@@ -139,7 +139,7 @@
 **Technical Stats:**
 - Backend routes: 10 (auth, applications, customers, users, chemicals, targetPests, reports, weather, photos, notifications)
 - Mobile screens: 6 (Login, Signup, QuickLog, History, Detail, Profile)
-- Web pages: 7 (Login, Signup, Applications, Customers, Users, Reports, Notifications)
+- Web pages: 9 (Login, Signup, Applications, Customers, Users, Reports, Notifications, Privacy Policy, Support)
 - Database models: 8
 - Seeded data: 39 chemicals, 28 target pests
 
@@ -153,9 +153,24 @@
 
 ## 📝 Notes & Observations
 
+**February 11, 2026:**
+- Fixed critical auth bug: database tables were missing on production Postgres
+- Rebuilt and re-seeded production database (correct Postgres instance)
+- Fixed mobile API URL: was pointing to localhost, now points to Railway
+- Fixed CORS to allow Vercel web dashboard
+- Reverted Prisma schema from sqlite back to postgresql
+- Unified all branding to "Field Log Pro" across mobile, web, backend, and docs
+- Created Privacy Policy and Support pages for App Store submission
+- Created App Store submission document with all required metadata
+- All environment variables confirmed on Railway (SendGrid, Cloudflare R2, Stripe, OpenWeather)
+- Auth fully functional: signup + login working on production
+
 **January 29, 2026:**
 - Backend successfully deployed to Railway
+- Web dashboard deployed to Vercel
 - iOS app built and submitted to TestFlight (awaiting Apple review)
+- Database seeded with 39 chemicals and 28 target pests
+- OpenWeather API key configured - weather auto-fill functional
 - Fixed several deployment issues:
   - Added OpenSSL to Alpine Docker image for Prisma
   - Fixed tsconfig rootDir for correct TypeScript output
@@ -178,14 +193,14 @@
 
 ## 🎯 Next Steps
 
-**Immediate (Remaining Deployment):**
-1. ~~Set up Railway account and deploy backend~~ ✅
-2. ~~Run database migrations on Railway~~ ✅
-3. ~~Set up Vercel and deploy web dashboard~~ ✅
-4. ~~Configure EAS Build and submit to TestFlight~~ ✅
-5. Wait for Apple TestFlight review
-6. Set up remaining API keys (SendGrid, OpenWeather, R2)
-7. Invite beta testers
+**Immediate (App Store Submission):**
+1. ~~Fix auth/network error on mobile~~ ✅
+2. ~~Unify branding to "Field Log Pro"~~ ✅
+3. ~~Create Privacy Policy and Support pages~~ ✅
+4. ~~Prepare App Store submission metadata~~ ✅
+5. Take screenshots on iOS Simulator for App Store
+6. Submit to App Store for review
+7. Invite beta testers via TestFlight
 
 **Post-Launch:**
 1. Monitor error rates and performance
@@ -210,10 +225,16 @@
 | Jan 28, 2026 | **MVP COMPLETE** | Ready for production |
 | Jan 29, 2026 | iOS build complete | Submitted to TestFlight |
 | Jan 29, 2026 | Backend deployed | Live on Railway |
-| **Jan 29, 2026** | **DEPLOYMENT IN PROGRESS** | **75% complete** |
+| Jan 29, 2026 | DEPLOYMENT IN PROGRESS | 75% complete |
+| Feb 11, 2026 | Auth fixed, branding unified | Production fully operational |
+| **Feb 11, 2026** | **APP STORE SUBMISSION PREP** | **Ready to submit** |
 
 ---
 
-**🚀 DEPLOYMENT IN PROGRESS - BACKEND LIVE, iOS IN REVIEW 🚀**
+**🎉 FIELD LOG PRO IS LIVE! 🎉**
+
+**Backend:** https://fieldlogpro-production.up.railway.app
+**Web Dashboard:** https://web-ten-mauve-47.vercel.app
+**iOS App:** Awaiting TestFlight approval
 
 *This document should be updated as deployment progresses and beta testing begins.*

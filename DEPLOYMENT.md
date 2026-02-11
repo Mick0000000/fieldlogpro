@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide covers deploying the Landscaping App to production environments.
+This guide covers deploying Field Log Pro to production environments.
 
 ## Architecture Overview
 

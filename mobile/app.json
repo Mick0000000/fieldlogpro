@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Landscaping App",
+    "name": "Field Log Pro",
     "slug": "landscaping-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "scheme": "landscapingapp",
+    "scheme": "fieldlogpro",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -18,7 +18,8 @@
       "bundleIdentifier": "com.landscapingapp.mobile",
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to capture photos of pesticide application sites.",
-        "NSLocationWhenInUseUsageDescription": "This app uses your location to record where pesticide applications occur."
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to record where pesticide applications occur.",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -40,15 +41,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "your-eas-project-id"
+        "projectId": "e1e3397c-bf16-4291-bbf7-470b31de3143"
       }
     },
-    "owner": "your-expo-username",
-    "updates": {
-      "url": "https://u.expo.dev/your-eas-project-id"
-    },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    }
+    "owner": "mick000000"
   }
 }

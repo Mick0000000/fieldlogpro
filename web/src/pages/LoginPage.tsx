@@ -62,7 +62,7 @@ const LoginPage = () => {
             component="h1"
             sx={{ mb: 1, fontWeight: 'bold', color: 'primary.main' }}
           >
-            PestTrack
+            Field Log Pro
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
             Sign in to your account

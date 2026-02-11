@@ -82,7 +82,7 @@ const DashboardLayout = () => {
     <Box>
       <Toolbar>
         <Typography variant="h6" noWrap sx={{ fontWeight: 'bold', color: 'primary.main' }}>
-          PestTrack
+          Field Log Pro
         </Typography>
       </Toolbar>
       <Divider />

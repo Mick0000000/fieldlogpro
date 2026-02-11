@@ -1,6 +1,6 @@
-# LANDSCAPE COMPLIANCE LOGGER - QUICK START GUIDE
+# FIELD LOG PRO - QUICK START GUIDE
 
-**Project:** Landscape Compliance Logger  
+**Project:** Field Log Pro  
 **Timeline:** 8 weeks to MVP  
 **First Beta Customer:** Week 8  
 **Tech Stack:** React Native + React.js + Node.js + PostgreSQL
